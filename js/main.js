@@ -361,36 +361,43 @@ function submitForm(form) {
     sendEmail(formObject, form, submitButton, originalText);
 }
 
-// Send email function
+// Send WhatsApp message function
 function sendEmail(formData, form, submitButton, originalText) {
-    // Initialize EmailJS
-    emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your actual EmailJS public key
+    // Create WhatsApp message with all form data
+    const message = `*New Contact Form Submission from ArcVantage Website*
+
+*Name:* ${formData.name}
+*Email:* ${formData.email}
+*Phone:* ${formData.phone || 'Not provided'}
+*Project Type:* ${formData.projectType || 'Not specified'}
+
+*Message:*
+${formData.message}
+
+---
+This message was sent from the ArcVantage Design Studios website contact form.`;
+
+    // Encode the message for WhatsApp URL
+    const encodedMessage = encodeURIComponent(message);
     
-    // EmailJS template parameters
-    const templateParams = {
-        to_email: "arcvantagedesignstudios@gmail.com",
-        from_name: formData.name,
-        from_email: formData.email,
-        from_phone: formData.phone || 'Not provided',
-        project_type: formData.projectType || 'Not specified',
-        message: formData.message,
-        reply_to: formData.email
-    };
+    // Create WhatsApp URL with the phone number
+    const whatsappUrl = `https://wa.me/919920718996?text=${encodedMessage}`;
     
-    // Send email using EmailJS
-    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
-        .then(function(response) {
-            console.log('SUCCESS!', response.status, response.text);
-            showSuccessMessage(form);
-            form.reset();
-            submitButton.textContent = originalText;
-            submitButton.disabled = false;
-        }, function(error) {
-            console.log('FAILED...', error);
-            showErrorMessage(form, 'Failed to send email. Please try again or contact us directly at arcvantagedesignstudios@gmail.com');
-            submitButton.textContent = originalText;
-            submitButton.disabled = false;
-        });
+    // Open WhatsApp in new window/tab
+    const whatsappWindow = window.open(whatsappUrl, '_blank');
+    
+    // Check if WhatsApp opened successfully
+    if (whatsappWindow) {
+        showSuccessMessage(form);
+        form.reset();
+        submitButton.textContent = originalText;
+        submitButton.disabled = false;
+    } else {
+        // If popup blocked, show instructions
+        showErrorMessage(form, 'Please allow popups and try again, or WhatsApp us directly at +91 9920718996');
+        submitButton.textContent = originalText;
+        submitButton.disabled = false;
+    }
 }
 
 // Show success message
@@ -399,8 +406,8 @@ function showSuccessMessage(form) {
     successDiv.className = 'success-message';
     successDiv.innerHTML = `
         <div style="background-color: #48bb78; color: white; padding: 1rem; border-radius: 8px; margin-top: 1rem; text-align: center;">
-            <i class="fas fa-check-circle" style="margin-right: 0.5rem;"></i>
-            Thank you! Your message has been sent successfully to arcvantagedesignstudios@gmail.com. We'll get back to you soon.
+            <i class="fab fa-whatsapp" style="margin-right: 0.5rem;"></i>
+            Thank you! WhatsApp has opened with your message. Please send the message to +91 9920718996. We'll get back to you soon.
         </div>
     `;
     

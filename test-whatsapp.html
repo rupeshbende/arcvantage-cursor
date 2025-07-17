@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Test - ArcVantage Design Studios</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .test-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #25D366;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #128C7E;
+        }
+        .status {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .info {
+            background-color: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        .whatsapp-info {
+            background-color: #E8F5E8;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #25D366;
+            margin-bottom: 20px;
+        }
+        .whatsapp-info h3 {
+            margin-top: 0;
+            color: #128C7E;
+        }
+        .test-button {
+            background-color: #25D366;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 5px;
+            display: inline-block;
+        }
+        .test-button:hover {
+            background-color: #128C7E;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>WhatsApp Integration Test</h1>
+        
+        <div class="whatsapp-info">
+            <h3>📱 WhatsApp Integration</h3>
+            <p>This test will open WhatsApp with a pre-filled message to <strong>+91 9920718996</strong>. The contact form on the main website will work the same way.</p>
+        </div>
+        
+        <div class="test-section">
+            <h2>Test WhatsApp Message</h2>
+            <p>Click the button below to test the WhatsApp integration:</p>
+            
+            <button class="test-button" onclick="testWhatsApp()">
+                <i class="fab fa-whatsapp"></i> Test WhatsApp Message
+            </button>
+            
+            <div id="status"></div>
+        </div>
+        
+        <div class="test-section">
+            <h2>Test Contact Form</h2>
+            <form id="test-form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required value="Test User">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required value="test@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone" value="+1234567890">
+                </div>
+                <div class="form-group">
+                    <label for="projectType">Project Type:</label>
+                    <select id="projectType" name="projectType">
+                        <option value="">Select project type</option>
+                        <option value="residential" selected>Residential Design</option>
+                        <option value="commercial">Commercial Architecture</option>
+                        <option value="renovation">Renovation & Remodeling</option>
+                        <option value="consultation">Consultation</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required placeholder="Test message from website contact form...">This is a test message from the ArcVantage website contact form. I'm interested in learning more about your arc-based design services.</textarea>
+                </div>
+                <button type="submit" class="test-button">
+                    <i class="fab fa-whatsapp"></i> Send via WhatsApp
+                </button>
+            </form>
+        </div>
+        
+        <div class="test-section">
+            <h2>How It Works</h2>
+            <div class="info">
+                <h3>WhatsApp Integration Process:</h3>
+                <ol>
+                    <li>User fills out the contact form</li>
+                    <li>Form data is formatted into a WhatsApp message</li>
+                    <li>WhatsApp opens with pre-filled message to +91 9920718996</li>
+                    <li>User clicks send in WhatsApp</li>
+                    <li>You receive the message on WhatsApp</li>
+                </ol>
+                
+                <h3>Benefits:</h3>
+                <ul>
+                    <li>✅ No setup required - works immediately</li>
+                    <li>✅ No email configuration needed</li>
+                    <li>✅ Instant notifications on WhatsApp</li>
+                    <li>✅ Easy to reply and follow up</li>
+                    <li>✅ Works on mobile and desktop</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Font Awesome for WhatsApp icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        // Test WhatsApp function
+        function testWhatsApp() {
+            const message = `*Test Message from ArcVantage Website*
+
+This is a test message to verify WhatsApp integration is working correctly.
+
+*Test Details:*
+- Website: ArcVantage Design Studios
+- Contact Form: WhatsApp Integration
+- Timestamp: ${new Date().toLocaleString()}
+
+---
+This is a test message from the website contact form.`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/919920718996?text=${encodedMessage}`;
+            
+            const whatsappWindow = window.open(whatsappUrl, '_blank');
+            
+            if (whatsappWindow) {
+                showStatus('WhatsApp opened successfully! Please send the test message.', 'success');
+            } else {
+                showStatus('Please allow popups and try again, or WhatsApp us directly at +91 9920718996', 'info');
+            }
+        }
+
+        // Contact form submission
+        document.getElementById('test-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const formObject = {};
+            formData.forEach((value, key) => {
+                formObject[key] = value;
+            });
+            
+            // Create WhatsApp message with form data
+            const message = `*New Contact Form Submission from ArcVantage Website*
+
+*Name:* ${formObject.name}
+*Email:* ${formObject.email}
+*Phone:* ${formObject.phone || 'Not provided'}
+*Project Type:* ${formObject.projectType || 'Not specified'}
+
+*Message:*
+${formObject.message}
+
+---
+This message was sent from the ArcVantage Design Studios website contact form.`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/919920718996?text=${encodedMessage}`;
+            
+            const whatsappWindow = window.open(whatsappUrl, '_blank');
+            
+            if (whatsappWindow) {
+                showStatus('WhatsApp opened with your message! Please send it to +91 9920718996', 'success');
+                this.reset();
+            } else {
+                showStatus('Please allow popups and try again, or WhatsApp us directly at +91 9920718996', 'info');
+            }
+        });
+
+        // Show status message
+        function showStatus(message, type) {
+            const statusDiv = document.getElementById('status');
+            statusDiv.innerHTML = `<div class="status ${type}">${message}</div>`;
+            
+            // Remove status after 5 seconds
+            setTimeout(() => {
+                statusDiv.innerHTML = '';
+            }, 5000);
+        }
+    </script>
+</body>
+</html> 
