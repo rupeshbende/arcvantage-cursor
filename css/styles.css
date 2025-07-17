@@ -278,6 +278,17 @@ p {
     letter-spacing: 2px;
 }
 
+.hero-tagline {
+    font-family: var(--font-accent);
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: var(--accent);
+    margin-bottom: var(--spacing-lg);
+    font-style: italic;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
 .hero-description {
     font-size: 1.25rem;
     margin-bottom: var(--spacing-2xl);
@@ -847,6 +858,16 @@ p {
 .footer-brand p {
     color: rgba(255, 255, 255, 0.8);
     margin-bottom: var(--spacing-lg);
+}
+
+.footer-tagline {
+    font-family: var(--font-accent);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--secondary);
+    margin-bottom: var(--spacing-md);
+    font-style: italic;
+    letter-spacing: 0.5px;
 }
 
 .social-links {
