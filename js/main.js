@@ -350,18 +350,65 @@ function submitForm(form) {
     submitButton.textContent = 'Sending...';
     submitButton.disabled = true;
     
-    // Simulate form submission (replace with actual submission logic)
-    setTimeout(() => {
+    // Get form data
+    const formData = new FormData(form);
+    const formObject = {};
+    formData.forEach((value, key) => {
+        formObject[key] = value;
+    });
+    
+    // Send email using EmailJS or similar service
+    sendEmail(formObject, form, submitButton, originalText);
+}
+
+// Send email function
+function sendEmail(formData, form, submitButton, originalText) {
+    // Option 1: Using EmailJS (recommended for client-side email sending)
+    if (typeof emailjs !== 'undefined') {
+        emailjs.send('service_id', 'template_id', {
+            to_email: 'arcvantagedesignstudios@gmail.com',
+            from_name: formData.name || 'Website Contact',
+            from_email: formData.email,
+            subject: `New Contact Form Submission from ${formData.name}`,
+            message: `
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone || 'Not provided'}
+Project Type: ${formData.projectType || 'Not specified'}
+Message: ${formData.message}
+            `
+        })
+        .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+            showSuccessMessage(form);
+            form.reset();
+            submitButton.textContent = originalText;
+            submitButton.disabled = false;
+        })
+        .catch(function(error) {
+            console.log('FAILED...', error);
+            showErrorMessage(form, 'Failed to send message. Please try again or contact us directly.');
+            submitButton.textContent = originalText;
+            submitButton.disabled = false;
+        });
+    } else {
+        // Option 2: Fallback to mailto link
+        const mailtoLink = `mailto:arcvantagedesignstudios@gmail.com?subject=New Contact Form Submission from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(`
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone || 'Not provided'}
+Project Type: ${formData.projectType || 'Not specified'}
+Message: ${formData.message}
+        `)}`;
+        
+        window.open(mailtoLink, '_blank');
+        
         // Show success message
         showSuccessMessage(form);
-        
-        // Reset form
         form.reset();
-        
-        // Reset button
         submitButton.textContent = originalText;
         submitButton.disabled = false;
-    }, 2000);
+    }
 }
 
 // Show success message
@@ -371,7 +418,7 @@ function showSuccessMessage(form) {
     successDiv.innerHTML = `
         <div style="background-color: #48bb78; color: white; padding: 1rem; border-radius: 8px; margin-top: 1rem; text-align: center;">
             <i class="fas fa-check-circle" style="margin-right: 0.5rem;"></i>
-            Thank you! Your message has been sent successfully. We'll get back to you soon.
+            Thank you! Your message has been sent successfully to arcvantagedesignstudios@gmail.com. We'll get back to you soon.
         </div>
     `;
     
@@ -380,6 +427,25 @@ function showSuccessMessage(form) {
     // Remove success message after 5 seconds
     setTimeout(() => {
         successDiv.remove();
+    }, 5000);
+}
+
+// Show error message
+function showErrorMessage(form, message) {
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'error-message';
+    errorDiv.innerHTML = `
+        <div style="background-color: #e53e3e; color: white; padding: 1rem; border-radius: 8px; margin-top: 1rem; text-align: center;">
+            <i class="fas fa-exclamation-circle" style="margin-right: 0.5rem;"></i>
+            ${message}
+        </div>
+    `;
+    
+    form.appendChild(errorDiv);
+    
+    // Remove error message after 5 seconds
+    setTimeout(() => {
+        errorDiv.remove();
     }, 5000);
 }
 
