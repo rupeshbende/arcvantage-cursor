@@ -5,7 +5,7 @@
     "category": "residential",
     "description": "A modern home featuring innovative arc-based design elements that create flowing, harmonious living spaces.",
     "fullDescription": "This stunning residential project showcases our expertise in arc-based design. The home features curved walls, arched doorways, and circular elements that create natural flow and movement throughout the space. The design emphasizes serenity and comfort while maintaining modern aesthetics. The living area incorporates a curved accent wall that serves as both a focal point and a functional element, while the kitchen features a circular island that facilitates workflow and social interaction. Bedrooms include arched windows that frame natural light beautifully, creating peaceful retreats for rest and relaxation.",
-    "images": ["project-1.jpg", "project-1-2.jpg", "project-1-3.jpg"],
+    "images": ["serenity-heights.jpg", "serenity-heights.jpg", "serenity-heights.jpg"],
     "completionDate": "2024-01-15",
     "location": "San Francisco, CA",
     "features": ["Arc integration", "Natural lighting", "Open spaces", "Custom curved walls", "Circular kitchen island", "Arched windows"]
@@ -16,7 +16,7 @@
     "category": "commercial",
     "description": "A contemporary office building that demonstrates how arc elements can enhance workplace environments.",
     "fullDescription": "This commercial project redefines modern office design through the strategic use of arc elements. The building features curved conference rooms, flowing corridors, and circular gathering spaces that promote collaboration and creativity. The main lobby incorporates a dramatic curved ceiling that creates a welcoming first impression, while meeting rooms feature arched doorways that eliminate harsh transitions. The open office areas use curved partitions to define workspaces while maintaining visual connectivity. The design successfully balances functionality with aesthetic appeal, creating an environment that supports both productivity and well-being.",
-    "images": ["project-2.jpg", "project-2-2.jpg", "project-2-3.jpg"],
+    "images": ["urban-arc-office.jpg", "urban-arc-office.jpg", "urban-arc-office.jpg"],
     "completionDate": "2023-11-20",
     "location": "Los Angeles, CA",
     "features": ["Collaborative spaces", "Arc-based meeting rooms", "Modern aesthetics", "Energy efficient", "Curved partitions", "Circular gathering areas"]
@@ -27,7 +27,7 @@
     "category": "renovation",
     "description": "A historic building renovation that preserves character while introducing modern arc-based design elements.",
     "fullDescription": "This renovation project successfully blends historic architecture with contemporary arc-based design. We preserved the building's original character while introducing modern curved elements that enhance functionality and visual appeal. The project involved carefully restoring original features while adding new arc-based elements that complement the existing structure. Curved staircases were added to improve flow, while arched doorways were restored and enhanced. The result is a space that honors its heritage while providing modern comfort and functionality.",
-    "images": ["project-3.jpg", "project-3-2.jpg", "project-3-3.jpg"],
+    "images": ["heritage-renovation.jpg", "heritage-renovation.jpg", "heritage-renovation.jpg"],
     "completionDate": "2023-09-10",
     "location": "Boston, MA",
     "features": ["Historic preservation", "Modern arc integration", "Structural updates", "Timeless design", "Restored features", "Enhanced flow"]
@@ -38,7 +38,7 @@
     "category": "residential",
     "description": "A luxury villa that showcases the perfect harmony between natural surroundings and arc-based architecture.",
     "fullDescription": "This luxury villa demonstrates how arc-based design can create seamless connections between indoor and outdoor spaces. The home features curved glass walls that follow the natural contours of the landscape, while interior spaces use arc elements to create intimate gathering areas. The design emphasizes the relationship between architecture and nature, with curved elements that echo the flowing river nearby. The result is a home that feels both sophisticated and organic, providing the perfect setting for modern luxury living.",
-    "images": ["project-4.jpg", "project-4-2.jpg", "project-4-3.jpg"],
+    "images": ["riverside-villa.jpg", "riverside-villa.jpg", "riverside-villa.jpg"],
     "completionDate": "2023-12-05",
     "location": "Miami, FL",
     "features": ["Natural integration", "Curved glass walls", "Luxury finishes", "Outdoor connectivity", "Landscape harmony", "Modern luxury"]
@@ -49,7 +49,7 @@
     "category": "commercial",
     "description": "A cutting-edge corporate campus that uses arc-based design to foster innovation and collaboration.",
     "fullDescription": "This corporate campus represents the future of workplace design, using arc-based elements to create environments that inspire innovation and collaboration. The campus features curved buildings that create natural gathering spaces, while interior design emphasizes flow and connectivity. Common areas use circular seating arrangements that encourage spontaneous meetings, while private offices feature curved walls that provide acoustic benefits while maintaining visual interest. The design successfully creates a campus that supports both focused work and collaborative innovation.",
-    "images": ["project-5.jpg", "project-5-2.jpg", "project-5-3.jpg"],
+    "images": ["innovation-campus.jpg", "innovation-campus.jpg", "innovation-campus.jpg"],
     "completionDate": "2023-10-15",
     "location": "Austin, TX",
     "features": ["Innovation spaces", "Collaborative design", "Modern campus", "Acoustic benefits", "Circular seating", "Flow optimization"]
@@ -60,7 +60,7 @@
     "category": "residential",
     "description": "A beachfront home that uses arc-based design to capture ocean views and create serene living spaces.",
     "fullDescription": "This beachfront retreat demonstrates how arc-based design can maximize views while creating intimate, comfortable spaces. The home features curved walls that frame ocean views, while interior spaces use arc elements to create natural flow between indoor and outdoor areas. The design emphasizes the connection to the natural environment, with curved elements that echo the organic forms of the coastal landscape. The result is a home that provides both spectacular views and intimate, comfortable living spaces.",
-    "images": ["project-6.jpg", "project-6-2.jpg", "project-6-3.jpg"],
+    "images": ["coastal-retreat.jpg", "coastal-retreat.jpg", "coastal-retreat.jpg"],
     "completionDate": "2023-08-20",
     "location": "Malibu, CA",
     "features": ["Ocean views", "Coastal design", "Curved walls", "Indoor-outdoor flow", "Natural materials", "Serene spaces"]

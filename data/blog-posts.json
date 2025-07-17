@@ -8,7 +8,7 @@
     "publishDate": "2024-01-15",
     "category": "design-tips",
     "tags": ["arcs", "serenity", "interior-design", "curves"],
-    "featuredImage": "blog-1.jpg"
+    "featuredImage": "arc-based-design.jpg"
   },
   {
     "id": "2",
@@ -19,7 +19,7 @@
     "publishDate": "2024-01-10",
     "category": "architecture",
     "tags": ["natural-light", "arcs", "windows", "skylights"],
-    "featuredImage": "blog-2.jpg"
+    "featuredImage": "natural-light.jpg"
   },
   {
     "id": "3",
@@ -30,7 +30,7 @@
     "publishDate": "2024-01-05",
     "category": "living-spaces",
     "tags": ["flow", "curves", "modern-design", "functionality"],
-    "featuredImage": "blog-3.jpg"
+    "featuredImage": "creating-flow.jpg"
   },
   {
     "id": "4",
@@ -41,7 +41,7 @@
     "publishDate": "2023-12-28",
     "category": "design-tips",
     "tags": ["color-psychology", "arcs", "interior-design", "mood"],
-    "featuredImage": "blog-4.jpg"
+    "featuredImage": "color-psychology.jpg"
   },
   {
     "id": "5",
@@ -52,7 +52,7 @@
     "publishDate": "2023-12-20",
     "category": "architecture",
     "tags": ["sustainability", "eco-friendly", "curves", "energy-efficiency"],
-    "featuredImage": "blog-5.jpg"
+    "featuredImage": "sustainable-design.jpg"
   },
   {
     "id": "6",
@@ -63,6 +63,6 @@
     "publishDate": "2023-12-15",
     "category": "living-spaces",
     "tags": ["small-spaces", "compact-living", "curves", "functionality"],
-    "featuredImage": "blog-6.jpg"
+    "featuredImage": "small-spaces.jpg"
   }
 ] 
