@@ -363,33 +363,34 @@ function submitForm(form) {
 
 // Send email function
 function sendEmail(formData, form, submitButton, originalText) {
-    // Create mailto link with all form data
-    const mailtoLink = `mailto:arcvantagedesignstudios@gmail.com?subject=New Contact Form Submission from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(`
-Name: ${formData.name}
-Email: ${formData.email}
-Phone: ${formData.phone || 'Not provided'}
-Project Type: ${formData.projectType || 'Not specified'}
-Message: ${formData.message}
-
----
-This email was sent from the ArcVantage Design Studios website contact form.
-        `)}`;
+    // Initialize EmailJS
+    emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your actual EmailJS public key
     
-    // Open mailto link in new window/tab
-    const mailtoWindow = window.open(mailtoLink, '_blank');
+    // EmailJS template parameters
+    const templateParams = {
+        to_email: "arcvantagedesignstudios@gmail.com",
+        from_name: formData.name,
+        from_email: formData.email,
+        from_phone: formData.phone || 'Not provided',
+        project_type: formData.projectType || 'Not specified',
+        message: formData.message,
+        reply_to: formData.email
+    };
     
-    // Check if mailto opened successfully
-    if (mailtoWindow) {
-        showSuccessMessage(form);
-        form.reset();
-        submitButton.textContent = originalText;
-        submitButton.disabled = false;
-    } else {
-        // If popup blocked, show instructions
-        showErrorMessage(form, 'Please allow popups and try again, or email us directly at arcvantagedesignstudios@gmail.com');
-        submitButton.textContent = originalText;
-        submitButton.disabled = false;
-    }
+    // Send email using EmailJS
+    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+        .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+            showSuccessMessage(form);
+            form.reset();
+            submitButton.textContent = originalText;
+            submitButton.disabled = false;
+        }, function(error) {
+            console.log('FAILED...', error);
+            showErrorMessage(form, 'Failed to send email. Please try again or contact us directly at arcvantagedesignstudios@gmail.com');
+            submitButton.textContent = originalText;
+            submitButton.disabled = false;
+        });
 }
 
 // Show success message
