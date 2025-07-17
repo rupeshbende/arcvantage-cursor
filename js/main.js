@@ -363,49 +363,30 @@ function submitForm(form) {
 
 // Send email function
 function sendEmail(formData, form, submitButton, originalText) {
-    // Option 1: Using EmailJS (recommended for client-side email sending)
-    if (typeof emailjs !== 'undefined') {
-        emailjs.send('service_id', 'template_id', {
-            to_email: 'arcvantagedesignstudios@gmail.com',
-            from_name: formData.name || 'Website Contact',
-            from_email: formData.email,
-            subject: `New Contact Form Submission from ${formData.name}`,
-            message: `
+    // Create mailto link with all form data
+    const mailtoLink = `mailto:arcvantagedesignstudios@gmail.com?subject=New Contact Form Submission from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(`
 Name: ${formData.name}
 Email: ${formData.email}
 Phone: ${formData.phone || 'Not provided'}
 Project Type: ${formData.projectType || 'Not specified'}
 Message: ${formData.message}
-            `
-        })
-        .then(function(response) {
-            console.log('SUCCESS!', response.status, response.text);
-            showSuccessMessage(form);
-            form.reset();
-            submitButton.textContent = originalText;
-            submitButton.disabled = false;
-        })
-        .catch(function(error) {
-            console.log('FAILED...', error);
-            showErrorMessage(form, 'Failed to send message. Please try again or contact us directly.');
-            submitButton.textContent = originalText;
-            submitButton.disabled = false;
-        });
-    } else {
-        // Option 2: Fallback to mailto link
-        const mailtoLink = `mailto:arcvantagedesignstudios@gmail.com?subject=New Contact Form Submission from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(`
-Name: ${formData.name}
-Email: ${formData.email}
-Phone: ${formData.phone || 'Not provided'}
-Project Type: ${formData.projectType || 'Not specified'}
-Message: ${formData.message}
+
+---
+This email was sent from the ArcVantage Design Studios website contact form.
         `)}`;
-        
-        window.open(mailtoLink, '_blank');
-        
-        // Show success message
+    
+    // Open mailto link in new window/tab
+    const mailtoWindow = window.open(mailtoLink, '_blank');
+    
+    // Check if mailto opened successfully
+    if (mailtoWindow) {
         showSuccessMessage(form);
         form.reset();
+        submitButton.textContent = originalText;
+        submitButton.disabled = false;
+    } else {
+        // If popup blocked, show instructions
+        showErrorMessage(form, 'Please allow popups and try again, or email us directly at arcvantagedesignstudios@gmail.com');
         submitButton.textContent = originalText;
         submitButton.disabled = false;
     }
